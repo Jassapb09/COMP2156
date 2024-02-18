@@ -21,7 +21,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: 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  # Set in the settings page of your repository, as a secure variable
+  github_token: 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
   keep_history: true
   on:
     branch: main
