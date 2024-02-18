@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 language: node_js
 node_js:
-  - "stable"
+  - "20.x"
 
 branches:
   only:
