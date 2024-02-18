@@ -1,32 +1,17 @@
-name: DevOps Lab Exercise
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-# Controls when the workflow will run
-
 language: node_js
 node_js:
-  - 19
-
-branches:
-  only:
-  - main
-cache:
-  directories:
-  - node_modules
+    - lts/*
+cache: npm
 
 install:
-  - npm install
-  - npm install -g yarn
+    - npm install
 
 script:
-  #- yarn lint
-  - yarn build
-  - mv build/index.html build/404.html
+    - npm run build
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
-
-on:
-  branch: master
+    provider: pages
+    github-token: $GITHUB_TOKEN
+    local_dir: build 
+    on:
+        branch: main
