@@ -20,7 +20,6 @@ script:
 
 deploy:
   provider: pages
-  skip_cleanup: true
   github_token: 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
   keep_history: true
   on:
