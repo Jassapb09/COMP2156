@@ -1,27 +1,27 @@
 language: node_js
 node_js:
-  - 19
+  - '16'
 
 branches:
   only:
-  - main
+    - main
+
 cache:
   directories:
-  - node_modules
+    - node_modules
 
 install:
   - npm install
   - npm install -g yarn
 
 script:
-  #- yarn lint
   - yarn build
   - mv build/index.html build/404.html
 
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  github_token: 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  # Set in the settings page of your repository, as a secure variable
   keep_history: true
   on:
     branch: main
