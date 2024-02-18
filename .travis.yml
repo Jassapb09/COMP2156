@@ -1,26 +1,17 @@
 language: node_js
 node_js:
-  - '16'
-
-branches:
-  only:
-    - main
-
-cache:
-  directories:
-    - node_modules
+    - lts/*
+cache: npm
 
 install:
-  - npm install
-  - npm install -g yarn
+    - npm install
 
 script:
-  - yarn build
-  - mv build/index.html build/404.html
+    - npm run build
 
 deploy:
-  provider: pages
-  github_token: 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
-  keep_history: true
-  on:
-    branch: main
+    provider: pages
+    github-token: $GITHUB_TOKEN
+    local_dir: build 
+    on:
+        branch: main
